@@ -10,7 +10,6 @@ public class Mapa extends javax.swing.JFrame {
         this.setLayout(null);
         this.setResizable(false);
         j.setBounds(1000, 30, 56, 20);
-        //Gus es como mka
         this.add(j);
         this.setVisible(false);
     }
