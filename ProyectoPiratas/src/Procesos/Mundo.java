@@ -1,29 +1,24 @@
 package Procesos;
-import java.awt.*;
+import java.awt.Graphics;
 import javax.swing.*;
 public class Mundo extends javax.swing.JPanel {
     private ImageIcon inicio = new ImageIcon(getClass().getResource("../Imagenes/Inicio.jpg")); 
-    ImageIcon c1 = new ImageIcon(getClass().getResource("../Imagenes/Continente1.png"));
-    int c11 = 0;
-    public Mundo()
-    {
+    public Mundo() {
         initComponents();  
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(inicio.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);        
+    public void paintComponent(Graphics g) {
+        super.paintComponents(g);        
+        g.drawImage(inicio.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);
         repaint();
     }
     
-    public void NuevaImagen(int ancho, int alto, String nombre)
+    public void NuevaImagen(String nombre)
     {
         inicio = new ImageIcon(getClass().getResource("../Imagenes/" + nombre));
-        this.setSize(ancho, alto);      
-        c11 = 1;
+        this.setSize(1100, 750);  
     }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
