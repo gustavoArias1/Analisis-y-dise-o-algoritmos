@@ -5,6 +5,8 @@
  */
 package dominio;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author ANDRES ARIAS
@@ -14,8 +16,10 @@ public class Isla {
     private int numeroEsclavos;
     private int Tesoros;
     private String Nombre;
+    LinkedList<Conexion> Conexiones = new LinkedList<>();
 
     public Isla() {
+        
     }
 
     public Isla(int Estrellas, int numeroEsclavos, int Tesoros, String Nombre) {
@@ -31,6 +35,14 @@ public class Isla {
 
     public void setEstrellas(int Estrellas) {
         this.Estrellas = Estrellas;
+    }
+
+    public LinkedList<Conexion> getConexiones() {
+        return Conexiones;
+    }
+
+    public void setConexiones(LinkedList<Conexion> Conexiones) {
+        this.Conexiones = Conexiones;
     }
 
     public int getNumeroEsclavos() {
@@ -57,6 +69,12 @@ public class Isla {
         this.Nombre = Nombre;
     }
     
-    
-            
+    public void adicionarConexiones(Conexion Nuevaconexion){
+        Conexiones.add(Nuevaconexion);
+    }
+    @Override
+    public String toString() {
+        return "\n \tIsla [Isla=" + Nombre + ", Conexiones=" + Conexiones + "]";
+    }
+             
 }

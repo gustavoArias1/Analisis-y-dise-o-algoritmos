@@ -1,6 +1,5 @@
 package Procesos;
 import Dominio.*;
-import java.util.*;
 import javax.swing.*;
 public class Mapa extends javax.swing.JFrame {
     private ImageIcon itemC;
