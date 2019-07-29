@@ -2,12 +2,12 @@ package Dominio;
 import java.util.*;
 import javax.swing.*;
 public class Continente {
-    private LinkedList<Isla> islas = new LinkedList();
+    public LinkedList<Isla> islas = new LinkedList();
     private int x, y, ancho, alto;
     private String image;
     private ImageIcon imagen;
     public Continente(int x, int y, int ancho, int alto, String imagen) {
-        ImageIcon Imagen = new ImageIcon(getClass().getResource("../Imagenes/" + imagen));
+        this.imagen = new ImageIcon(getClass().getResource("../Imagenes/" + imagen));
         this.x = x;
         this.y = y;
         this.ancho = ancho;

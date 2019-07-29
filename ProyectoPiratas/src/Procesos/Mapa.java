@@ -2,10 +2,10 @@ package Procesos;
 import Dominio.*;
 import javax.swing.*;
 public class Mapa extends javax.swing.JFrame {
-    private ImageIcon itemC;
+    private ImageIcon itemC, itemI;
     private int x;
     private int y;
-    private int item;
+    private int item, itemIsla;
     public Mapa() {
         initComponents();
         setLayout(null);
@@ -25,23 +25,22 @@ public class Mapa extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         mundo = new Procesos.Mundo();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 1350, 700));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Isla 1", "Isla 2", "Isla 3", "Isla 4" }));
+        jComboBox2.setEnabled(false);
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setEnabled(false);
         jLabel3.setName(""); // NOI18N
         jLabel3.setPreferredSize(new java.awt.Dimension(75, 75));
-        jLabel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel3MouseDragged(evt);
-            }
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel3MouseMoved(evt);
-            }
-        });
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 jLabel3MouseReleased(evt);
@@ -95,6 +94,14 @@ public class Mapa extends javax.swing.JFrame {
                 .addGap(32, 32, 32))
         );
 
+        jLabel4.setEnabled(false);
+        jLabel4.setPreferredSize(new java.awt.Dimension(75, 75));
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel4MouseReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,10 +123,12 @@ public class Mapa extends javax.swing.JFrame {
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 51, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -131,10 +140,12 @@ public class Mapa extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(44, 44, 44)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(19, 19, 19))
@@ -153,6 +164,7 @@ public class Mapa extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         jComboBox1.setEnabled(true);
+        jComboBox2.setEnabled(true);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -174,24 +186,41 @@ public class Mapa extends javax.swing.JFrame {
         jLabel3.setIcon(itemC);
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jLabel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseDragged
-        //int x = evt.getXOnScreen();
-        /*     */  
-    }//GEN-LAST:event_jLabel3MouseDragged
-
-    private void jLabel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseMoved
-        /*if (item == 1) {
-            mundo.cont.add(new Continente(evt.getXOnScreen(), evt.getYOnScreen(), 500, 500, "Continente1.png"));
-            System.out.println(mundo.cont.size());
-        } */
-    }//GEN-LAST:event_jLabel3MouseMoved
-
     private void jLabel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseReleased
         if (item == 1) {
-            mundo.cont.add(new Continente(evt.getXOnScreen(), evt.getYOnScreen(), 500, 500, "Continente1.png"));
-            System.out.println(mundo.cont.size() + "    " + evt.getXOnScreen());
+            mundo.cont.add(new Continente(evt.getXOnScreen() - 150, evt.getYOnScreen() - 130, 300, 300, "Continente1.png"));
+        } 
+        if (item == 2) {
+            mundo.cont.add(new Continente(evt.getXOnScreen() - 150, evt.getYOnScreen() - 130, 300, 300, "Continente2.png"));
+        } 
+        if (item == 3) {
+            mundo.cont.add(new Continente(evt.getXOnScreen() - 150, evt.getYOnScreen() - 130, 300, 300, "Continente3.png"));
         } 
     }//GEN-LAST:event_jLabel3MouseReleased
+
+    private void jLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseReleased
+        //JOptionPane.showInputDialog(evt)
+        mundo.cont.get(0).islas.add(new Isla(evt.getXOnScreen() - 15, evt.getYOnScreen() - 25, 50, 50, "Isla1.png"));
+    }//GEN-LAST:event_jLabel4MouseReleased
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        String sel = (String) jComboBox2.getSelectedItem();
+        jLabel4.setEnabled(true);
+        if ("Isla 1".equals(sel)) {
+            itemI = new ImageIcon(getClass().getResource("../Imagenes/ItemI1.png")); 
+            itemIsla = 1;
+        }
+        else if ("Continente 2".equals(sel)) {
+            itemC = new ImageIcon(getClass().getResource("../Imagenes/ItemC2.png"));
+            item = 2;
+        }
+        else
+        {
+            itemC = new ImageIcon(getClass().getResource("../Imagenes/ItemC3.png")); 
+            item = 3;
+        }
+        jLabel4.setIcon(itemI);
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -234,6 +263,7 @@ public class Mapa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private Procesos.Mundo mundo;
     // End of variables declaration//GEN-END:variables
 }

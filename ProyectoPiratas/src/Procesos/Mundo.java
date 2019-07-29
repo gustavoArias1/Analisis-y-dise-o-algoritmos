@@ -15,10 +15,15 @@ public class Mundo extends javax.swing.JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponents(g);        
         g.drawImage(inicio.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);
-        if (cont.size() > 0) {
-            for (int i = 0; i < cont.size(); i++) {
+        if (cont.size() > 0) {            
+            for (int i = 0; i < cont.size(); i++) {  
                 g.drawImage(cont.get(i).getImagen().getImage(), cont.get(i).getX(), cont.get(i).getY(),
-                        cont.get(i).getAncho(),                    cont.get(i).getAlto(), this);
+                        cont.get(i).getAncho(), cont.get(i).getAlto(), this);
+            }
+            for (int i = 0; i < cont.get(0).islas.size(); i++) {
+                g.drawImage(cont.get(0).islas.get(i).getImagen().getImage(), cont.get(0).islas.get(i).getX(),
+                        cont.get(0).islas.get(i).getY(), cont.get(0).islas.get(i).getAncho(),
+                        cont.get(0).islas.get(i).getAlto(), this);
             }
         }
         repaint();
