@@ -1,8 +1,12 @@
 package Procesos;
-import java.awt.Graphics;
+import Dominio.*;
+import java.awt.*;
+import java.util.*;
 import javax.swing.*;
 public class Mundo extends javax.swing.JPanel {
     private ImageIcon inicio = new ImageIcon(getClass().getResource("../Imagenes/Inicio.jpg")); 
+    private ImageIcon itemC = null;
+    public LinkedList <Continente> cont = new LinkedList<Continente>();
     public Mundo() {
         initComponents();  
     }
@@ -11,6 +15,12 @@ public class Mundo extends javax.swing.JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponents(g);        
         g.drawImage(inicio.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);
+        if (cont.size() > 0) {
+            for (int i = 0; i < cont.size(); i++) {
+                g.drawImage(cont.get(i).getImagen().getImage(), cont.get(i).getX(), cont.get(i).getY(),
+                        cont.get(i).getAncho(),                    cont.get(i).getAlto(), this);
+            }
+        }
         repaint();
     }
     
@@ -19,6 +29,7 @@ public class Mundo extends javax.swing.JPanel {
         inicio = new ImageIcon(getClass().getResource("../Imagenes/" + nombre));
         this.setSize(1100, 750);  
     }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
