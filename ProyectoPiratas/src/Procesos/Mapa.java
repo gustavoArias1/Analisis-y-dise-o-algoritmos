@@ -206,18 +206,23 @@ public class Mapa extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         String sel = (String) jComboBox2.getSelectedItem();
         jLabel4.setEnabled(true);
-        if ("Isla 1".equals(sel)) {
-            itemI = new ImageIcon(getClass().getResource("../Imagenes/ItemI1.png")); 
-            itemIsla = 1;
+        if (null == sel) {
+            itemI = new ImageIcon(getClass().getResource("../Imagenes/ItemC3.png")); 
+            item = 1;
         }
-        else if ("Continente 2".equals(sel)) {
-            itemC = new ImageIcon(getClass().getResource("../Imagenes/ItemC2.png"));
-            item = 2;
-        }
-        else
-        {
-            itemC = new ImageIcon(getClass().getResource("../Imagenes/ItemC3.png")); 
-            item = 3;
+        else switch (sel) {
+            case "Isla 1":
+                itemI = new ImageIcon(getClass().getResource("../Imagenes/ItemI1.png"));
+                itemIsla = 2;
+                break;
+            case "Continente 2":
+                itemI = new ImageIcon(getClass().getResource("../Imagenes/ItemC2.png"));
+                item = 3;
+                break;
+            default:
+                itemI = new ImageIcon(getClass().getResource("../Imagenes/ItemC3.png"));
+                item = 4;
+                break;
         }
         jLabel4.setIcon(itemI);
     }//GEN-LAST:event_jComboBox2ActionPerformed

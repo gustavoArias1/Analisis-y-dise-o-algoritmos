@@ -12,15 +12,12 @@ import java.util.LinkedList;
  * @author ANDRES ARIAS
  */
 public class Plano {
-    private LinkedList<Isla>Islas= new LinkedList<>();
+    public static  LinkedList<Isla>Islas= new LinkedList<>();
     
     public void agregarIslas(Isla isla){
         Islas.add(isla);
     }
 
-    public LinkedList<Isla> getIslas() {
-        return Islas;
-    }
     
      @Override
     public String toString() {
