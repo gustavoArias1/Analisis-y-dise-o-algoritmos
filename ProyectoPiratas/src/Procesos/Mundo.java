@@ -1,5 +1,5 @@
 package Procesos;
-import Dominio.*;
+import dominio.*;
 import java.awt.*;
 import java.util.*;
 import javax.swing.*;
