@@ -11,9 +11,10 @@ import java.util.LinkedList;
  *
  * @author ANDRES ARIAS
  */
-public class Plano {
-    public static  LinkedList<Isla>Islas= new LinkedList<>();
+public final class Plano {
     
+    public static LinkedList<Isla>Islas= new LinkedList<>();
+
     public void agregarIslas(Isla isla){
         Islas.add(isla);
     }

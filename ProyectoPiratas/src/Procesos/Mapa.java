@@ -199,8 +199,9 @@ public class Mapa extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseReleased
 
     private void jLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseReleased
-        //JOptionPane.showInputDialog(evt)
+        
         mundo.cont.get(0).islas.add(new Isla(evt.getXOnScreen() - 15, evt.getYOnScreen() - 25, 50, 50, "Isla1.png"));
+        Plano.Islas.add(new Isla(evt.getXOnScreen() - 15, evt.getYOnScreen() - 25, 50, 50, "Isla1.png"));
     }//GEN-LAST:event_jLabel4MouseReleased
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
