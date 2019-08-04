@@ -6,9 +6,15 @@ import javax.swing.*;
 public class Mundo extends javax.swing.JPanel {
     private ImageIcon inicio = new ImageIcon(getClass().getResource("../Imagenes/Inicio.jpg")); 
     private ImageIcon itemC = null;
-    public LinkedList <Continente> cont = new LinkedList<Continente>();
+    public LinkedList <Continente> cont = new LinkedList<>();
+    
     public Mundo() {
         initComponents();  
+        Barco.imagen=new ImageIcon(getClass().getResource("../Imagenes/Barco.png"));
+        Barco.alto=30;
+        Barco.ancho=30;
+        Barco.x=30;
+        Barco.y=30;
     }
 
     
@@ -16,9 +22,12 @@ public class Mundo extends javax.swing.JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponents(g);  
-        
+        g.setColor(Color.GRAY);
         g.drawImage(inicio.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);
-        if (cont.size() > 0) {            
+        g.drawImage(Barco.imagen.getImage(), 5, 5, Barco.ancho, Barco.alto, this);
+        
+        if (cont.size() > 0) {    
+            
             for (int i = 0; i < cont.size(); i++) {  
                 g.drawImage(cont.get(i).getImagen().getImage(), cont.get(i).getX(), cont.get(i).getY(),
                         cont.get(i).getAncho(), cont.get(i).getAlto(), this);
@@ -29,7 +38,7 @@ public class Mundo extends javax.swing.JPanel {
                         Plano.Islas.get(i).getAlto(), this);
             }
             for (int j = 0; j < Plano.Conexiones.size() ; j++) {
-                    g.drawLine(Plano.Conexiones.get(j).getIslaOrigen().getX()+30, Plano.Conexiones.get(j).getIslaOrigen().getY()+40, Plano.Conexiones.get(j).getIslaDestino().getX()+10, Plano.Conexiones.get(j).getIslaDestino().getY()+40);
+                    g.drawLine(Plano.Conexiones.get(j).getIslaOrigen().getX()+50, Plano.Conexiones.get(j).getIslaOrigen().getY()+50, Plano.Conexiones.get(j).getIslaDestino().getX()+10, Plano.Conexiones.get(j).getIslaDestino().getY()+40);
                }
         }
         repaint();
