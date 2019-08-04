@@ -11,12 +11,12 @@ package dominio;
  */
 public class Esclavo {
     private int tiempoVida;
-    private String edad;
+    private Isla edad;
 
     public Esclavo() {
     }
 
-    public Esclavo(int tiempoVida, String edad) {
+    public Esclavo(int tiempoVida, Isla edad) {
         this.tiempoVida = tiempoVida;
         this.edad = edad;
     }
@@ -29,11 +29,11 @@ public class Esclavo {
         this.tiempoVida = tiempoVida;
     }
 
-    public String getEdad() {
+    public Isla getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(Isla edad) {
         this.edad = edad;
     }
     

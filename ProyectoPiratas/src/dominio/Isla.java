@@ -5,6 +5,7 @@
  */
 package dominio;
 
+import java.awt.Rectangle;
 import java.util.LinkedList;
 import javax.swing.ImageIcon;
 
@@ -21,6 +22,9 @@ public class Isla {
     private ImageIcon imagen;
     private String Nombre;
     LinkedList<Conexion> Conexiones = new LinkedList<>();
+    private Rectangle rectanguloIsla;
+
+   
 
     public Isla(int x, int y, int ancho, int alto, String imagen) {
         this.imagen = new ImageIcon(getClass().getResource("../Imagenes/" + imagen));
@@ -28,6 +32,7 @@ public class Isla {
         this.y = y;
         this.ancho = ancho;
         this.alto = alto; 
+        this.rectanguloIsla= new Rectangle(this.x, this.y, this.ancho, this.alto);
     }
 
     public int getX() {
@@ -128,9 +133,17 @@ public class Isla {
     public void adicionarConexiones(Conexion Nuevaconexion){
         Conexiones.add(Nuevaconexion);
     }
-    @Override
-    public String toString() {
-        return "\n \tIsla [Isla=" + Nombre + ", Conexiones=" + Conexiones + "]";
+//    @Override
+//    public Isla toString() {
+//        return "\n \tIsla [Isla=" + Nombre + ", Conexiones=" + Conexiones + "]";
+//    }
+    
+    public Rectangle getRectanguloIsla() {
+        return rectanguloIsla;
+    }
+
+    public void setRectanguloIsla(Rectangle rectanguloIsla) {
+        this.rectanguloIsla = rectanguloIsla;
     }
              
 }

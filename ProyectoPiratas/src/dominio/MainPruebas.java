@@ -12,7 +12,7 @@ package dominio;
 public class MainPruebas {
 
     
-    public static void main(String[] args) {
+    public static void main(Isla[] args) {
        
         Isla isla1= new Isla(0, 0, 0, "isla1");
         Isla isla2= new Isla(0, 0, 0, "isla2");

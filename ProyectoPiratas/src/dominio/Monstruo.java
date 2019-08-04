@@ -11,12 +11,12 @@ package dominio;
  */
 public class Monstruo {
     private int vida;
-    private String Peligrosidad;
+    private Isla Peligrosidad;
 
     public Monstruo() {
     }
 
-    public Monstruo(int vida, String Peligrosidad) {
+    public Monstruo(int vida, Isla Peligrosidad) {
         this.vida = vida;
         this.Peligrosidad = Peligrosidad;
     }
@@ -29,11 +29,11 @@ public class Monstruo {
         this.vida = vida;
     }
 
-    public String getPeligrosidad() {
+    public Isla getPeligrosidad() {
         return Peligrosidad;
     }
 
-    public void setPeligrosidad(String Peligrosidad) {
+    public void setPeligrosidad(Isla Peligrosidad) {
         this.Peligrosidad = Peligrosidad;
     }
     

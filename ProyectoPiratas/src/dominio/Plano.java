@@ -14,15 +14,15 @@ import java.util.LinkedList;
 public final class Plano {
     
     public static LinkedList<Isla>Islas= new LinkedList<>();
-
+    public static LinkedList<Conexion>Conexiones= new LinkedList<>();
     public void agregarIslas(Isla isla){
         Islas.add(isla);
     }
 
     
-     @Override
-    public String toString() {
-        return "Grafo [Islas=" + Islas + "]";
-    }
+//     @Override
+//    public Isla toString() {
+//        return "Grafo [Islas=" + Islas + "]";
+//    }
     
 }

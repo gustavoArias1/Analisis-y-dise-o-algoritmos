@@ -13,6 +13,8 @@ public class Conexion {
     private Isla islaOrigen;
     private Isla islaDestino;
     private double Distancia;
+    
+   
 
     public Conexion() {
     }
@@ -47,10 +49,11 @@ public class Conexion {
         this.Distancia = Distancia;
     }
     
-    @Override
-    public String toString() {
-        return "\n Conexion [origen=" + islaOrigen.getNombre() + ", destino =" + islaDestino.getNombre() + ", distancia="
-                + Distancia + "]";
-    }
+   
+//    @Override
+//    public Isla toString() {
+//        return "\n Conexion [origen=" + islaOrigen + ", destino =" + islaDestino + ", distancia="
+//                + Distancia + "]";
+//    }
     
 }

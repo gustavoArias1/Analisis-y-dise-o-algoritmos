@@ -4,7 +4,7 @@ import javax.swing.*;
 public class Continente {
     public LinkedList<Isla> islas = new LinkedList();
     private int x, y, ancho, alto;
-    private String image;
+    private Isla image;
     private ImageIcon imagen;
     
     public Continente(int x, int y, int ancho, int alto, String imagen) {
@@ -55,11 +55,11 @@ public class Continente {
         this.alto = alto;
     }
 
-    public String getImage() {
+    public Isla getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(Isla image) {
         this.image = image;
     }
 
