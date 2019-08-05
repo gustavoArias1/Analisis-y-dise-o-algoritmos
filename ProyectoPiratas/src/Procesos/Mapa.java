@@ -1,6 +1,5 @@
 package Procesos;
 import dominio.*;
-import java.awt.Rectangle;
 import javax.swing.*;
 public class Mapa extends javax.swing.JFrame {
     private ImageIcon itemC, itemI;
@@ -60,6 +59,11 @@ public class Mapa extends javax.swing.JFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Boton1.jpg"))); // NOI18N
         jButton2.setPreferredSize(new java.awt.Dimension(70, 70));
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Espada.png"))); // NOI18N
         jLabel2.setEnabled(false);
@@ -283,6 +287,14 @@ public class Mapa extends javax.swing.JFrame {
             Plano.Conexiones.add(new Conexion(IslaOrigen, IslaDestino, 100));
         }
     }//GEN-LAST:event_AñadirConexionActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        
+        Barco.Origen= Plano.Islas.get(0);
+        Barco.Destino= Plano.Islas.get(1);
+        Barco B = new Barco();
+        B.iniciarHilo();
+    }//GEN-LAST:event_jButton2MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -24,7 +24,7 @@ public class Mundo extends javax.swing.JPanel {
         super.paintComponents(g);  
         g.setColor(Color.GRAY);
         g.drawImage(inicio.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);
-        g.drawImage(Barco.imagen.getImage(), 5, 5, Barco.ancho, Barco.alto, this);
+        g.drawImage(Barco.imagen.getImage(), Barco.x, Barco.y, Barco.ancho, Barco.alto, this);
         
         if (cont.size() > 0) {    
             
