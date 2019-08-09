@@ -6,6 +6,7 @@
 package dominio;
 
 import java.awt.Rectangle;
+import java.io.Serializable;
 import java.util.LinkedList;
 import javax.swing.ImageIcon;
 
@@ -13,7 +14,7 @@ import javax.swing.ImageIcon;
  *
  * @author ANDRES ARIAS
  */
-public class Isla {
+public class Isla implements Serializable{
     private int Estrellas;
     private int numeroEsclavos;
     private int Tesoros;

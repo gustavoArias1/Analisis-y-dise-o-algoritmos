@@ -40,12 +40,12 @@ public class Barco implements Runnable{
 
     @Override
     public void run() {
-        Barco.x=Origen.getX();
-        Barco.y=Origen.getY();
-        double deltaY=Destino.getY()-Origen.getY();
-        double deltaX=Destino.getX()-Origen.getX();
-        double pendiente=deltaY/deltaX;
-        double b= -1*(Destino.getX()*pendiente-Destino.getY());
+        Barco.x = Origen.getX();
+        Barco.y = Origen.getY();
+        double deltaY = Destino.getY() - Origen.getY();
+        double deltaX = Destino.getX() - Origen.getX();
+        double pendiente = deltaY / deltaX;
+        double b = -1 * (Destino.getX() * pendiente - Destino.getY());
         try {
             while (!(Barco.x == Destino.getX() && Barco.y == Destino.getY())) {
 
@@ -56,13 +56,13 @@ public class Barco implements Runnable{
                         Barco.x--;
                     }
                 }
-                Barco.y=(int) (pendiente * (Barco.x) + b) ;
+                Barco.y = (int) (pendiente * (Barco.x) + b);
                 Thread.sleep(10);
 
             }
         } catch (Exception e) {
         }
-        
+
     }
     
 }

@@ -5,16 +5,18 @@
  */
 package dominio;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
  *
  * @author ANDRES ARIAS
  */
-public final class Plano {
+public final class Plano implements Serializable{
     
     public static LinkedList<Isla>Islas= new LinkedList<>();
     public static LinkedList<Conexion>Conexiones= new LinkedList<>();
+    public static LinkedList<Continente>Continentes= new LinkedList<>();
     public void agregarIslas(Isla isla){
         Islas.add(isla);
     }

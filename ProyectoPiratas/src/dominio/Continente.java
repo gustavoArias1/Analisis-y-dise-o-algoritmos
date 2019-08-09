@@ -1,7 +1,8 @@
 package dominio;
+import java.io.Serializable;
 import java.util.*;
 import javax.swing.*;
-public class Continente {
+public class Continente implements Serializable {
     public LinkedList<Isla> islas = new LinkedList();
     private int x, y, ancho, alto;
     private Isla image;

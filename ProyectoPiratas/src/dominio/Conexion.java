@@ -5,11 +5,13 @@
  */
 package dominio;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ANDRES ARIAS 
  */
-public class Conexion {
+public class Conexion implements Serializable{
     private Isla islaOrigen;
     private Isla islaDestino;
     private double Distancia;

@@ -26,11 +26,12 @@ public class Mundo extends javax.swing.JPanel {
         g.drawImage(inicio.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);
         g.drawImage(Barco.imagen.getImage(), Barco.x, Barco.y, Barco.ancho, Barco.alto, this);
         
-        if (cont.size() > 0) {    
+        if (Plano.Continentes.size() > 0) {    
             
-            for (int i = 0; i < cont.size(); i++) {  
-                g.drawImage(cont.get(i).getImagen().getImage(), cont.get(i).getX(), cont.get(i).getY(),
-                        cont.get(i).getAncho(), cont.get(i).getAlto(), this);
+            for (int i = 0; i < Plano.Continentes.size(); i++) { 
+                
+                g.drawImage(Plano.Continentes.get(i).getImagen().getImage(), Plano.Continentes.get(i).getX(), Plano.Continentes.get(i).getY(),
+                        Plano.Continentes.get(i).getAncho(), Plano.Continentes.get(i).getAlto(), this);
             }
             for (int i = 0; i < Plano.Islas.size(); i++) {
                 g.drawImage(Plano.Islas.get(i).getImagen().getImage(), Plano.Islas.get(i).getX(),
