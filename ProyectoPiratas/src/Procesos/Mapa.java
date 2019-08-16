@@ -79,6 +79,12 @@ public class Mapa extends javax.swing.JFrame {
             }
         });
 
+        mundo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mundoMouseClicked(evt);
+            }
+        });
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Espada.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -330,6 +336,16 @@ public class Mapa extends javax.swing.JFrame {
           A.leerArchivo();
           mundo.repaint();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void mundoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mundoMouseClicked
+        mundo.Editar=true;
+        mundo.MouseX=evt.getX();
+        mundo.MouseY=evt.getY();
+        Editar editar=new Editar();
+        if(mundo.Edito){
+            new Editar().setVisible(true);
+        }        
+    }//GEN-LAST:event_mundoMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -186,6 +186,9 @@
       </Events>
     </Component>
     <Container class="Procesos.Mundo" name="mundo">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mundoMouseClicked"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">
