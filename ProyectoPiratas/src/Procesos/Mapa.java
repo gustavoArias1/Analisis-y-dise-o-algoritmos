@@ -6,13 +6,15 @@ public class Mapa extends javax.swing.JFrame {
     private int x;
     private int y;
     private int itemContinente, itemIsla;
+    public static Editar editar = new Editar();
+    public static Isla islaNueva;
     
     public Mapa() {
         initComponents();
         setLayout(null);
         this.setSize(1350, 700);
         this.setResizable(false);        
-        mundo.setSize(1350, 700);
+        mundo.setSize(1350, 700);        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -21,15 +23,15 @@ public class Mapa extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         mundo = new Procesos.Mundo();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         AñadirConexion = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 1350, 700));
@@ -59,25 +61,8 @@ public class Mapa extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Boton1.jpg"))); // NOI18N
-        jButton2.setPreferredSize(new java.awt.Dimension(70, 70));
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Espada.png"))); // NOI18N
         jLabel2.setEnabled(false);
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Boton2.jpg"))); // NOI18N
-        jButton1.setText("jButton1");
-        jButton1.setPreferredSize(new java.awt.Dimension(70, 70));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
 
         mundo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -138,6 +123,21 @@ public class Mapa extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Boton1.png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Boton2.jpg"))); // NOI18N
+        jLabel6.setPreferredSize(new java.awt.Dimension(70, 70));
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -148,21 +148,17 @@ public class Mapa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addGap(34, 34, 34)
+                                .addComponent(jButton4)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(AñadirConexion)
                                     .addComponent(jLabel2))
-                                .addGap(88, 88, 88))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(34, 34, 34)
-                                .addComponent(jButton4)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGap(88, 88, 88))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,16 +169,22 @@ public class Mapa extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,16 +208,6 @@ public class Mapa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        jLabel1.setVisible(false);
-        mundo.NuevaImagen("Mapa.png");
-    }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        jComboBox1.setEnabled(true);
-        jComboBox2.setEnabled(true);
-    }//GEN-LAST:event_jButton1MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         String sel = (String) jComboBox1.getSelectedItem();
@@ -249,8 +241,7 @@ public class Mapa extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseReleased
 
     private void jLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseReleased
-        String imagenIsla="";
-        Isla islaNueva;
+        String imagenIsla="";        
         if (itemIsla == 1) {
             imagenIsla="Isla1.png";
         } 
@@ -264,12 +255,16 @@ public class Mapa extends javax.swing.JFrame {
             imagenIsla="Isla1.png";
         } 
         
-        islaNueva= new Isla(evt.getXOnScreen() - 15, evt.getYOnScreen() - 25, 50, 50, imagenIsla);
-        islaNueva.setNombre(JOptionPane.showInputDialog(null,"Ingrese nombre de isla"));
+        islaNueva = new Isla(evt.getXOnScreen() - 15, evt.getYOnScreen() - 25, 50, 50, imagenIsla);
+        
+        editar.setVisible(true); 
+            /*i*/
+        
+        /*islaNueva.setNombre(JOptionPane.showInputDialog(null,"Ingrese nombre de isla"));
         islaNueva.setNumeroEsclavos(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese numero de esclavos")));
         islaNueva.setTesoros(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese numerode tesoros")));
-        islaNueva.setEstrellas(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese numero de estrellas")));
-        Plano.Islas.add(islaNueva);
+        islaNueva.setEstrellas(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese numero de estrellas")));*/
+        //Plano.Islas.add(islaNueva);
         
     }//GEN-LAST:event_jLabel4MouseReleased
 
@@ -318,14 +313,6 @@ public class Mapa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AñadirConexionActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        
-        Barco.Origen= Plano.Islas.get(0);
-        Barco.Destino= Plano.Islas.get(1);
-        Barco B = new Barco();
-        B.iniciarHilo();
-    }//GEN-LAST:event_jButton2MouseClicked
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
            Archivos A = new Archivos();
            A.guardarArchivo();             
@@ -338,14 +325,39 @@ public class Mapa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void mundoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mundoMouseClicked
-        mundo.Editar=true;
-        mundo.MouseX=evt.getX();
-        mundo.MouseY=evt.getY();
-        Editar editar=new Editar();
+        mundo.Editar = true;
+        mundo.MouseX = evt.getXOnScreen() - 15;
+        mundo.MouseY = evt.getYOnScreen() - 25;
+        Editar editar = new Editar();
         if(mundo.Edito){
-            new Editar().setVisible(true);
-        }        
+            editar.setVisible(true);
+            editar.setjTextField1(mundo.editarIsla.getNombre());
+            editar.setjTextField2(mundo.editarIsla.getNumeroEsclavos() + "");
+            editar.setjTextField3(mundo.editarIsla.getTesoros() + "");
+            editar.setjTextField4(mundo.editarIsla.getEstrellas() + "");
+            mundo.Edito = false;
+            mundo.Editar = false;
+        }
+        //mundo.Edito=false;
     }//GEN-LAST:event_mundoMouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        jLabel1.setVisible(false);
+        mundo.NuevaImagen("Mapa.png");
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        jLabel5.setEnabled(false);
+        jComboBox1.setEnabled(true);
+        jComboBox2.setEnabled(true);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        Barco.Origen= Plano.Islas.get(0);
+        Barco.Destino= Plano.Islas.get(1);
+        Barco B = new Barco();
+        B.iniciarHilo();
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -375,15 +387,22 @@ public class Mapa extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Mapa().setVisible(true);
+                new Mapa().setVisible(true);              
             }
         });
+    }
+    
+    public static void AgregarIsla()
+    {
+        islaNueva.setNombre(editar.getjTextField1().getText());
+        islaNueva.setNumeroEsclavos(Integer.parseInt(editar.getjTextField2().getText()));
+        islaNueva.setTesoros(Integer.parseInt(editar.getjTextField3().getText()));
+        islaNueva.setEstrellas(Integer.parseInt(editar.getjTextField4().getText()));
+        Plano.Islas.add(islaNueva);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AñadirConexion;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
@@ -392,6 +411,8 @@ public class Mapa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private Procesos.Mundo mundo;
     // End of variables declaration//GEN-END:variables
 }

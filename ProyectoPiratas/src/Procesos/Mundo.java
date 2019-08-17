@@ -9,7 +9,7 @@ public class Mundo extends javax.swing.JPanel {
     public LinkedList <Continente> cont = new LinkedList<>();
     public Boolean Editar;
     public Boolean Edito;
-    public Isla editarIsla=null;
+    public static Isla editarIsla=null;
     public  int MouseX=0;    
     public  int MouseY=0;    
     public Mundo() {
@@ -35,8 +35,8 @@ public class Mundo extends javax.swing.JPanel {
             for (int i = 0; i < Plano.Islas.size(); i++) {
                 g.drawRect(MouseX, MouseY, 10, 10);
                 if(new Rectangle(Plano.Islas.get(i).getX(),Plano.Islas.get(i).getY(),Plano.Islas.get(i).getAncho(),Plano.Islas.get(i).getAlto()).intersects(new Rectangle(MouseX,MouseY,40,40))){
-                    Edito=true;
-                    editarIsla=Plano.Islas.get(i);
+                    Edito = true;
+                    editarIsla = Plano.Islas.get(i);
                 }
             }
         }
