@@ -18,11 +18,12 @@ public class Isla implements Serializable{
     private int Estrellas;
     private int numeroEsclavos;
     private int Tesoros;
+    public  LinkedList<Esclavo> ListaEsclavos=new LinkedList<>();
     private int x, y, ancho, alto;
     private String image;
     private ImageIcon imagen;
     private String Nombre;
-    LinkedList<Conexion> Conexiones = new LinkedList<>();
+    public  LinkedList<Conexion> Conexiones = new LinkedList<>();
     private Rectangle rectanguloIsla;
 
    
@@ -146,5 +147,7 @@ public class Isla implements Serializable{
     public void setRectanguloIsla(Rectangle rectanguloIsla) {
         this.rectanguloIsla = rectanguloIsla;
     }
+    
+   }
              
-}
+

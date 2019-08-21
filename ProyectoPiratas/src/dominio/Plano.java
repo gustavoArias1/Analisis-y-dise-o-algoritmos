@@ -17,11 +17,20 @@ public final class Plano implements Serializable{
     public static LinkedList<Isla>Islas= new LinkedList<>();
     public static LinkedList<Conexion>Conexiones= new LinkedList<>();
     public static LinkedList<Continente>Continentes= new LinkedList<>();
+    
     public void agregarIslas(Isla isla){
         Islas.add(isla);
     }
 
-    
+    public static Isla obtenerIsla(String nombre){
+        Isla isla=null;
+        for (int i = 0; i < Islas.size(); i++) {
+            if(Islas.get(i).getNombre().equals(nombre)){
+                isla=Islas.get(i);
+            }
+        }
+        return isla;
+    }
 //     @Override
 //    public Isla toString() {
 //        return "Grafo [Islas=" + Islas + "]";

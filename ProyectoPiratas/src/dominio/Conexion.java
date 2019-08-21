@@ -12,19 +12,30 @@ import java.io.Serializable;
  * @author ANDRES ARIAS 
  */
 public class Conexion implements Serializable{
+    private String Peligrosidad;
+    private String Tipo;
     private Isla islaOrigen;
     private Isla islaDestino;
     private double Distancia;
+    public boolean HayMonstruo;
+    public Monstruo Monstruo = new Monstruo(0, 0);
+
+   
+
+    
     
    
 
     public Conexion() {
     }
 
-    public Conexion(Isla islaOrigen, Isla islaDestino, double Distancia) {
+    public Conexion(Isla islaOrigen, Isla islaDestino, double Distancia,String tipo) {
         this.islaOrigen = islaOrigen;
         this.islaDestino = islaDestino;
         this.Distancia = Distancia;
+        this.Tipo=tipo;
+        this.HayMonstruo=false;
+        
     }
 
     public Isla getIslaOrigen() {
@@ -50,6 +61,23 @@ public class Conexion implements Serializable{
     public void setDistancia(double Distancia) {
         this.Distancia = Distancia;
     }
+    
+    public String getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(String Tipo) {
+        this.Tipo = Tipo;
+    }
+    
+    public String getPeligrosidad() {
+        return Peligrosidad;
+    }
+
+    public void setPeligrosidad(String Peligrosidad) {
+        this.Peligrosidad = Peligrosidad;
+    }
+    
     
    
 //    @Override

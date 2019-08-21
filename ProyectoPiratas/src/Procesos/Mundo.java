@@ -11,14 +11,11 @@ public class Mundo extends javax.swing.JPanel {
     public Boolean Edito;
     public static Isla editarIsla=null;
     public  int MouseX=0;    
-    public  int MouseY=0;    
+    public  int MouseY=0;
+    public static int isla=0;
     public Mundo() {
         initComponents();  
         Barco.imagen=new ImageIcon(getClass().getResource("../Imagenes/Barco.png"));
-        Barco.alto=30;
-        Barco.ancho=30;
-        Barco.x=30;
-        Barco.y=30;
         Editar=false;
         Edito=false;
     }
@@ -27,24 +24,25 @@ public class Mundo extends javax.swing.JPanel {
     
     @Override
     public void paintComponent(Graphics g) {
-        super.paintComponents(g);  
+        super.paintComponents(g);
         g.setColor(Color.GRAY);
         g.drawImage(inicio.getImage(), 0, 0, this.getSize().width, this.getSize().height, this);
         g.drawImage(Barco.imagen.getImage(), Barco.x, Barco.y, Barco.ancho, Barco.alto, this);
-        if(Editar){
+        if (Editar) {
             for (int i = 0; i < Plano.Islas.size(); i++) {
                 g.drawRect(MouseX, MouseY, 10, 10);
-                if(new Rectangle(Plano.Islas.get(i).getX(),Plano.Islas.get(i).getY(),Plano.Islas.get(i).getAncho(),Plano.Islas.get(i).getAlto()).intersects(new Rectangle(MouseX,MouseY,40,40))){
+                if (new Rectangle(Plano.Islas.get(i).getX(), Plano.Islas.get(i).getY(), Plano.Islas.get(i).getAncho(), Plano.Islas.get(i).getAlto()).intersects(new Rectangle(MouseX, MouseY, 40, 40))) {
                     Edito = true;
                     editarIsla = Plano.Islas.get(i);
+                    isla = i;
                 }
             }
         }
-        
-        if (Plano.Continentes.size() > 0) {    
-            
-            for (int i = 0; i < Plano.Continentes.size(); i++) { 
-                
+
+        if (Plano.Continentes.size() > 0) {
+
+            for (int i = 0; i < Plano.Continentes.size(); i++) {
+
                 g.drawImage(Plano.Continentes.get(i).getImagen().getImage(), Plano.Continentes.get(i).getX(), Plano.Continentes.get(i).getY(),
                         Plano.Continentes.get(i).getAncho(), Plano.Continentes.get(i).getAlto(), this);
             }
@@ -53,9 +51,17 @@ public class Mundo extends javax.swing.JPanel {
                         Plano.Islas.get(i).getY(), Plano.Islas.get(i).getAncho(),
                         Plano.Islas.get(i).getAlto(), this);
             }
-            for (int j = 0; j < Plano.Conexiones.size() ; j++) {
-                    g.drawLine(Plano.Conexiones.get(j).getIslaOrigen().getX()+50, Plano.Conexiones.get(j).getIslaOrigen().getY()+50, Plano.Conexiones.get(j).getIslaDestino().getX()+10, Plano.Conexiones.get(j).getIslaDestino().getY()+40);
-               }
+            for (int j = 0; j < Plano.Conexiones.size(); j++) {
+                g.drawLine(Plano.Conexiones.get(j).getIslaOrigen().getX() + 30, Plano.Conexiones.get(j).getIslaOrigen().getY() + 30, Plano.Conexiones.get(j).getIslaDestino().getX() + 10, Plano.Conexiones.get(j).getIslaDestino().getY() + 40);
+                g.setColor(Color.YELLOW);
+                g.drawString(Plano.Conexiones.get(j).getDistancia() + "", (Plano.Conexiones.get(j).getIslaOrigen().getX() + Plano.Conexiones.get(j).getIslaDestino().getX()) / 2, (Plano.Conexiones.get(j).getIslaOrigen().getY() + Plano.Conexiones.get(j).getIslaDestino().getY()+70) / 2);
+                g.setColor(Color.ORANGE);
+                g.drawString(j + "", (Plano.Conexiones.get(j).getIslaOrigen().getX() + Plano.Conexiones.get(j).getIslaDestino().getX()) / 2, (Plano.Conexiones.get(j).getIslaOrigen().getY() + Plano.Conexiones.get(j).getIslaDestino().getY()+50) / 2);
+                if(Plano.Conexiones.get(j).HayMonstruo){
+                    g.drawImage(Plano.Conexiones.get(j).Monstruo.getImagen().getImage(), (Plano.Conexiones.get(j).getIslaOrigen().getX() + Plano.Conexiones.get(j).getIslaDestino().getX()) / 2,(Plano.Conexiones.get(j).getIslaOrigen().getY() + Plano.Conexiones.get(j).getIslaDestino().getY()+50) / 2 , 30, 30, this);
+
+                }
+            } 
         }
         repaint();
     }

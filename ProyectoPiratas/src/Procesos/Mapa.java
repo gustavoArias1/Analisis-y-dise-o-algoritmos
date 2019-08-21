@@ -27,11 +27,12 @@ public class Mapa extends javax.swing.JFrame {
         mundo = new Procesos.Mundo();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        AñadirConexion = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        ConexionIslas = new javax.swing.JButton();
+        Guardar = new javax.swing.JButton();
+        Cargar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        conexionContinental = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 1350, 700));
@@ -102,24 +103,24 @@ public class Mapa extends javax.swing.JFrame {
             }
         });
 
-        AñadirConexion.setText("NuevaConexion");
-        AñadirConexion.addActionListener(new java.awt.event.ActionListener() {
+        ConexionIslas.setText("ConexionIslas");
+        ConexionIslas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AñadirConexionActionPerformed(evt);
+                ConexionIslasActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Guardar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Guardar.setText("Guardar");
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                GuardarActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Cargar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        Cargar.setText("Cargar");
+        Cargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                CargarActionPerformed(evt);
             }
         });
 
@@ -138,6 +139,13 @@ public class Mapa extends javax.swing.JFrame {
             }
         });
 
+        conexionContinental.setText("ConexionContinental");
+        conexionContinental.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                conexionContinentalActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,20 +153,6 @@ public class Mapa extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mundo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton3)
-                                .addGap(34, 34, 34)
-                                .addComponent(jButton4)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(AñadirConexion)
-                                    .addComponent(jLabel2))
-                                .addGap(88, 88, 88))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,9 +167,27 @@ public class Mapa extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(44, 44, 44)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34))))
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addGap(97, 97, 97))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(ConexionIslas)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(conexionContinental))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Guardar)
+                                        .addGap(34, 34, 34)
+                                        .addComponent(Cargar)))
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,11 +205,13 @@ public class Mapa extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AñadirConexion)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConexionIslas)
+                    .addComponent(conexionContinental))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(Guardar)
+                    .addComponent(Cargar))
                 .addGap(46, 46, 46)
                 .addComponent(jLabel2)
                 .addGap(19, 19, 19))
@@ -213,16 +227,16 @@ public class Mapa extends javax.swing.JFrame {
         String sel = (String) jComboBox1.getSelectedItem();
         jLabel3.setEnabled(true);
         if ("Continente 1".equals(sel)) {
-            itemC = new ImageIcon(getClass().getResource("../Imagenes/ItemC1.png")); 
+            itemC = new ImageIcon(getClass().getResource("../Imagenes/Americap.png")); 
             itemContinente = 1;
         }
         else if ("Continente 2".equals(sel)) {
-            itemC = new ImageIcon(getClass().getResource("../Imagenes/ItemC2.png"));
+            itemC = new ImageIcon(getClass().getResource("../Imagenes/Africap.png"));
             itemContinente = 2;
         }
         else
         {
-            itemC = new ImageIcon(getClass().getResource("../Imagenes/ItemC3.png")); 
+            itemC = new ImageIcon(getClass().getResource("../Imagenes/Asiap.png")); 
             itemContinente = 3;
         }
         jLabel3.setIcon(itemC);
@@ -230,13 +244,13 @@ public class Mapa extends javax.swing.JFrame {
 
     private void jLabel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseReleased
         if (itemContinente == 1) {
-            Plano.Continentes.add(new Continente(evt.getXOnScreen() - 150, evt.getYOnScreen() - 130, 300, 300, "Continente1.png"));
+            Plano.Continentes.add(new Continente(evt.getXOnScreen() - 150, evt.getYOnScreen() - 130, 300, 300, "America.png"));
         } 
         if (itemContinente == 2) {
-            Plano.Continentes.add(new Continente(evt.getXOnScreen() - 150, evt.getYOnScreen() - 130, 300, 300, "Continente2.png"));
+            Plano.Continentes.add(new Continente(evt.getXOnScreen() - 150, evt.getYOnScreen() - 130, 300, 300, "Africa.png"));
         } 
         if (itemContinente == 3) {
-            Plano.Continentes.add(new Continente(evt.getXOnScreen() - 150, evt.getYOnScreen() - 130, 300, 300, "Continente3.png"));
+            Plano.Continentes.add(new Continente(evt.getXOnScreen() - 150, evt.getYOnScreen() - 130, 300, 300, "Asia.png"));
         } 
     }//GEN-LAST:event_jLabel3MouseReleased
 
@@ -255,16 +269,11 @@ public class Mapa extends javax.swing.JFrame {
             imagenIsla="Isla1.png";
         } 
         
-        islaNueva = new Isla(evt.getXOnScreen() - 15, evt.getYOnScreen() - 25, 50, 50, imagenIsla);
+        islaNueva = new Isla(evt.getXOnScreen() - 15, evt.getYOnScreen() - 25, 30, 30, imagenIsla);
         
         editar.setVisible(true); 
-            /*i*/
-        
-        /*islaNueva.setNombre(JOptionPane.showInputDialog(null,"Ingrese nombre de isla"));
-        islaNueva.setNumeroEsclavos(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese numero de esclavos")));
-        islaNueva.setTesoros(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese numerode tesoros")));
-        islaNueva.setEstrellas(Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese numero de estrellas")));*/
-        //Plano.Islas.add(islaNueva);
+        editar.getjButton2().setVisible(false);
+        editar.getjButton3().setVisible(false);
         
     }//GEN-LAST:event_jLabel4MouseReleased
 
@@ -297,9 +306,10 @@ public class Mapa extends javax.swing.JFrame {
         jLabel4.setIcon(itemI);
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void AñadirConexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AñadirConexionActionPerformed
+    private void ConexionIslasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConexionIslasActionPerformed
         String islaOrigen=JOptionPane.showInputDialog(null,"Ingrese Isla Origen");     
         String islaDestino=JOptionPane.showInputDialog(null,"Ingrese Isla Destino");
+        int Distancia=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese la distancia"));
         Isla IslaOrigen= Plano.Islas.get(0);
         Isla IslaDestino= Plano.Islas.get(0);
         for (int i = 0; i < Plano.Islas.size(); i++) {
@@ -309,20 +319,22 @@ public class Mapa extends javax.swing.JFrame {
             if(Plano.Islas.get(i).getNombre().equals(islaDestino)){
                 IslaDestino=Plano.Islas.get(i);
             }
-            Plano.Conexiones.add(new Conexion(IslaOrigen, IslaDestino, 100));
+            
         }
-    }//GEN-LAST:event_AñadirConexionActionPerformed
+        Plano.Conexiones.add(new Conexion(IslaOrigen, IslaDestino, Distancia,"Isleña"));
+        //Plano.Conexiones.add(new Conexion(IslaDestino, IslaOrigen, Distancia,"Isleña"));
+    }//GEN-LAST:event_ConexionIslasActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
            Archivos A = new Archivos();
-           A.guardarArchivo();             
-    }//GEN-LAST:event_jButton3ActionPerformed
+           A.guardarArchivo();
+    }//GEN-LAST:event_GuardarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void CargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarActionPerformed
           Archivos A = new Archivos();
           A.leerArchivo();
           mundo.repaint();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_CargarActionPerformed
 
     private void mundoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mundoMouseClicked
         mundo.Editar = true;
@@ -331,14 +343,15 @@ public class Mapa extends javax.swing.JFrame {
         Editar editar = new Editar();
         if(mundo.Edito){
             editar.setVisible(true);
-            editar.setjTextField1(mundo.editarIsla.getNombre());
-            editar.setjTextField2(mundo.editarIsla.getNumeroEsclavos() + "");
-            editar.setjTextField3(mundo.editarIsla.getTesoros() + "");
-            editar.setjTextField4(mundo.editarIsla.getEstrellas() + "");
+            editar.setjTextField1(Mundo.editarIsla.getNombre());
+            editar.setjTextField2(Mundo.editarIsla.getNumeroEsclavos() + "");
+            editar.setjTextField3(Mundo.editarIsla.getTesoros() + "");
+            editar.setjTextField4(Mundo.editarIsla.getEstrellas() + "");
             mundo.Edito = false;
             mundo.Editar = false;
         }
-        //mundo.Edito=false;
+        editar.getjButton1().setVisible(false);
+        
     }//GEN-LAST:event_mundoMouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -353,11 +366,30 @@ public class Mapa extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        Barco.Origen= Plano.Islas.get(0);
-        Barco.Destino= Plano.Islas.get(1);
-        Barco B = new Barco();
-        B.iniciarHilo();
+        PanelControl panelcontrol = new PanelControl();
+        panelcontrol.setVisible(true);
     }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void conexionContinentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conexionContinentalActionPerformed
+        String islaOrigen=JOptionPane.showInputDialog(null,"Ingrese Isla Origen");     
+        String islaDestino=JOptionPane.showInputDialog(null,"Ingrese Isla Destino");
+        int Distancia=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese la distancia"));
+        Isla IslaOrigen= Plano.Islas.get(0);
+        Isla IslaDestino= Plano.Islas.get(0);
+        for (int i = 0; i < Plano.Islas.size(); i++) {
+            if(Plano.Islas.get(i).getNombre().equals(islaOrigen)){
+                IslaOrigen=Plano.Islas.get(i);
+            }
+            if(Plano.Islas.get(i).getNombre().equals(islaDestino)){
+                IslaDestino=Plano.Islas.get(i);
+            }
+            
+            
+        }
+        Plano.Conexiones.add(new Conexion(IslaOrigen, IslaDestino, Distancia,"Continental"));
+        //Plano.Conexiones.add(new Conexion(IslaDestino,IslaOrigen, Distancia,"Continental"));
+        
+    }//GEN-LAST:event_conexionContinentalActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -402,9 +434,10 @@ public class Mapa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AñadirConexion;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton Cargar;
+    private javax.swing.JButton ConexionIslas;
+    private javax.swing.JButton Guardar;
+    private javax.swing.JButton conexionContinental;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;

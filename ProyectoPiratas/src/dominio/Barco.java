@@ -5,7 +5,9 @@
  */
 package dominio;
 
+import Procesos.Logica;
 import java.awt.Rectangle;
+import java.util.LinkedList;
 import javax.swing.ImageIcon;
 
 /**
@@ -14,18 +16,22 @@ import javax.swing.ImageIcon;
  */
 public class Barco implements Runnable{
     public static  int Esclavos;
+    public static  int iteradorIsla=0;
+    public static  Boolean rutaTerminada=false;
+    public static  Boolean llegoIsla=false;
     public static  int horasNavegacion;
     public static  int Velocidad;
-    public static  int x;
-    public static  int y;
-    public static  int ancho;
-    public static  int alto;
+    public static  int x=30;
+    public static  int y=30;
+    public static  int ancho=30;
+    public static  int alto=30;
     public static String image;
     public static ImageIcon imagen;
     public static Rectangle rectanguloBarco;
     public static Isla Origen;
     public static Isla Destino;
     public  Thread T= new Thread(this);
+    public static LinkedList<Isla> Ruta= new LinkedList<>();
     
 
     public Barco() {
@@ -47,7 +53,10 @@ public class Barco implements Runnable{
         double pendiente = deltaY / deltaX;
         double b = -1 * (Destino.getX() * pendiente - Destino.getY());
         try {
-            while (!(Barco.x == Destino.getX() && Barco.y == Destino.getY())) {
+            while(!rutaTerminada){
+                System.out.println("");
+                while (!(Barco.x == Destino.getX() && Barco.y == Destino.getY())) {
+                    System.out.println("");
 
                 if (Barco.x < Destino.getX()) {
                     Barco.x++;
@@ -57,9 +66,16 @@ public class Barco implements Runnable{
                     }
                 }
                 Barco.y = (int) (pendiente * (Barco.x) + b);
-                Thread.sleep(10);
+                Thread.sleep(40);
 
             }
+                
+                llegoIsla=true;
+                iteradorIsla++;
+                Logica.siguienteIsla(Destino);
+                
+            }
+           
         } catch (Exception e) {
         }
 

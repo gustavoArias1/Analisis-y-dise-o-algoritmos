@@ -5,18 +5,24 @@
  */
 package dominio;
 
+import java.io.Serializable;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author ANDRES ARIAS
  */
-public class Monstruo {
+public class Monstruo implements Serializable{
     private int vida;
-    private Isla Peligrosidad;
+    private int Peligrosidad;
+    private ImageIcon imagen;
+
 
     public Monstruo() {
     }
 
-    public Monstruo(int vida, Isla Peligrosidad) {
+    public Monstruo(int vida, int Peligrosidad) {
+        this.imagen=new ImageIcon(getClass().getResource("../Imagenes/Monstruo.png"));
         this.vida = vida;
         this.Peligrosidad = Peligrosidad;
     }
@@ -29,12 +35,20 @@ public class Monstruo {
         this.vida = vida;
     }
 
-    public Isla getPeligrosidad() {
+    public int getPeligrosidad() {
         return Peligrosidad;
     }
 
-    public void setPeligrosidad(Isla Peligrosidad) {
+    public void setPeligrosidad(int Peligrosidad) {
         this.Peligrosidad = Peligrosidad;
+    }
+
+    public ImageIcon getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(ImageIcon imagen) {
+        this.imagen = imagen;
     }
     
     
