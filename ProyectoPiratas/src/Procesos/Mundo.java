@@ -65,6 +65,7 @@ public class Mundo extends javax.swing.JPanel {
         }
         repaint();
     }
+            
     
     public void NuevaImagen(String nombre)
     {

@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
  * @author ANDRES ARIAS
  */
 public class Barco implements Runnable{
+    public static boolean choque = false;
     public static  int Esclavos;
     public static  int iteradorIsla=0;
     public static  Boolean rutaTerminada=false;
@@ -88,7 +89,11 @@ public class Barco implements Runnable{
                 deltaX = Destino.getX() - Origen.getX();
                 pendiente = deltaY / deltaX;
                 b = -1 * (Destino.getX() * pendiente - Destino.getY());
-                
+                if (choque == false) {
+                    choque = true;
+                    Thread.sleep(2000);
+                    //PanelControl.setjProgressBar1();
+                }
                 
             }
            

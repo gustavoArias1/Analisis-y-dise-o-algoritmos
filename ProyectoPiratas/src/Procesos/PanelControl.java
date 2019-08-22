@@ -265,4 +265,18 @@ public class PanelControl extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @param jProgressBar1 the jProgressBar1 to set
+     */
+    public void setjProgressBar1(javax.swing.JProgressBar jProgressBar1) {
+        this.jProgressBar1 = jProgressBar1;
+    }
+
+    /**
+     * @return the jProgressBar1
+     */
+    public javax.swing.JProgressBar getjProgressBar1() {
+        return jProgressBar1;
+    }
 }
