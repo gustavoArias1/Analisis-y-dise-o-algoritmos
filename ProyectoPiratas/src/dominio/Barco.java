@@ -78,7 +78,6 @@ public class Barco implements Runnable{
                 Thread.sleep(20);
                
             }
-                System.out.println("Llega");
                 llegoIsla=true;
                 iteradorIsla++;
                 Barco.Origen=Destino;
