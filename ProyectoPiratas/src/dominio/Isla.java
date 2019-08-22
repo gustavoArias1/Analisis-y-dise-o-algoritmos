@@ -27,7 +27,14 @@ public class Isla implements Serializable{
     private Rectangle rectanguloIsla;
 
    
-
+    /**
+     * 
+     * @param x
+     * @param y
+     * @param ancho
+     * @param alto
+     * @param imagen 
+     */
     public Isla(int x, int y, int ancho, int alto, String imagen) {
         this.imagen = new ImageIcon(getClass().getResource("../Imagenes/" + imagen));
         this.x = x;

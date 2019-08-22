@@ -16,6 +16,11 @@ public class Esclavo {
     public Esclavo() {
     }
 
+    /**
+     * 
+     * @param tiempoVida
+     * @param edad 
+     */
     public Esclavo(int tiempoVida, Isla edad) {
         this.tiempoVida = tiempoVida;
         this.edad = edad;

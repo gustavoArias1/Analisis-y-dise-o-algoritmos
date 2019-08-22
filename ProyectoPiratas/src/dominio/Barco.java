@@ -38,11 +38,19 @@ public class Barco implements Runnable{
         
     }
     
-    public  void iniciarHilo(){
+    public   void iniciarHilo(){
         T.start();
         
     }
-
+    
+    public  void pausarHilo(){
+        T. interrupt();
+        
+    }
+    public  void reanudarHilo(){
+        T.resume();
+        
+    }
 
     @Override
     public void run() {
@@ -54,9 +62,8 @@ public class Barco implements Runnable{
         double b = -1 * (Destino.getX() * pendiente - Destino.getY());
         try {
             while(!rutaTerminada){
-                System.out.println("");
+                System.out.print("");
                 while (!(Barco.x == Destino.getX() && Barco.y == Destino.getY())) {
-                    System.out.println("");
 
                 if (Barco.x < Destino.getX()) {
                     Barco.x++;
@@ -64,15 +71,25 @@ public class Barco implements Runnable{
                     if (Barco.x > Destino.getX()) {
                         Barco.x--;
                     }
+                    
                 }
-                Barco.y = (int) (pendiente * (Barco.x) + b);
-                Thread.sleep(40);
-
-            }
                 
+                Barco.y = (int) (pendiente * (Barco.x) + b);
+                Thread.sleep(20);
+               
+            }
+                System.out.println("Llega");
                 llegoIsla=true;
                 iteradorIsla++;
-                Logica.siguienteIsla(Destino);
+                Barco.Origen=Destino;
+                Barco.x=Origen.getX();
+                Barco.y=Origen.getY();
+                Barco.Destino=Barco.Ruta.get(2);
+                deltaY = Destino.getY() - Origen.getY();
+                deltaX = Destino.getX() - Origen.getX();
+                pendiente = deltaY / deltaX;
+                b = -1 * (Destino.getX() * pendiente - Destino.getY());
+                
                 
             }
            

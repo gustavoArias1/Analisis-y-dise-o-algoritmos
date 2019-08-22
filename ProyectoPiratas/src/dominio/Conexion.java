@@ -29,6 +29,13 @@ public class Conexion implements Serializable{
     public Conexion() {
     }
 
+    /**ç
+     * 
+     * @param islaOrigen
+     * @param islaDestino
+     * @param Distancia
+     * @param tipo 
+     */
     public Conexion(Isla islaOrigen, Isla islaDestino, double Distancia,String tipo) {
         this.islaOrigen = islaOrigen;
         this.islaDestino = islaDestino;

@@ -8,6 +8,7 @@ package Procesos;
 import dominio.Barco;
 import dominio.Isla;
 import dominio.Plano;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,8 +20,14 @@ public class PanelControl extends javax.swing.JFrame {
     /**
      * Creates new form PanelControl
      */
+    public static Barco B; 
+    Isla Origen;
+    Isla Destino;
     public PanelControl() {
         initComponents();
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
+         B = new Barco();
     }
 
     /**
@@ -183,23 +190,23 @@ public class PanelControl extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AgregarMonstruoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarMonstruoActionPerformed
-        
-        Plano.Conexiones.get(Integer.parseInt(ConexionMonstruo.getText())).HayMonstruo=true;
+       Barco.x-=100;
+        //Plano.Conexiones.get(Integer.parseInt(ConexionMonstruo.getText())).HayMonstruo=true;
     }//GEN-LAST:event_AgregarMonstruoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int tamaño=Plano.Islas.size();
         int Costos[][] = new int[tamaño][tamaño];
-        Isla Origen = Plano.obtenerIsla(JOptionPane.showInputDialog(null,"ingrese origen"));
-        Isla Destino = Plano.obtenerIsla(JOptionPane.showInputDialog(null,"ingrese Destino"));
+        Origen = Plano.obtenerIsla(JOptionPane.showInputDialog(null,"ingrese origen"));
+        Destino = Plano.obtenerIsla(JOptionPane.showInputDialog(null,"ingrese Destino"));
         String Caminos[][] = new String[tamaño][tamaño];
-        Logica.FloydWarshall(Origen,Destino,Costos, Caminos, Plano.Islas);
+        LinkedList Alterna = Plano.Islas;
+        Logica.FloydWarshall(Origen,Destino,Costos, Caminos, Alterna);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Barco.Origen=Plano.Islas.get(0);
-        Barco.Destino=Plano.Islas.get(1);
-        Barco B = new Barco();
+        Barco.Origen=Origen;
+        Barco.Destino=Destino;
         B.iniciarHilo();
     }//GEN-LAST:event_jButton2ActionPerformed
 

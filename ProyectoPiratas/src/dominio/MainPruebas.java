@@ -47,6 +47,13 @@ public class MainPruebas {
 
     }
 
+    /**
+     * Es un algoritmo de programacion dinamica que funciona bajo el enfoque bottom up, que lo que hace es listarme las rutas y los
+     * costos minimos
+     * @param Costos
+     * @param Caminos
+     * @param Nodos 
+     */
     public static void FloydWarshall(int Costos[][], String Caminos[][], LinkedList<Isla> Nodos) {
         LinkedList<Conexion> Conexiones = new LinkedList<>();
         int suma = 0;
@@ -88,25 +95,38 @@ public class MainPruebas {
 
     }
 
+    /**
+     * 
+     * @param Costos
+     * @param Caminos 
+     */
     public static void imprimir(int Costos[][], String Caminos[][]) {
-        String Chupelo = "";
+        String mensaje = "";
         for (int i = 0; i < Costos.length; i++) {
             for (int j = 0; j < Costos[i].length; j++) {
-                Chupelo = Chupelo + "[" + Costos[i][j] + "]";
+                mensaje = mensaje + "[" + Costos[i][j] + "]";
             }
-            System.out.println(Chupelo);
-            Chupelo = "";
+            System.out.println(mensaje);
+            mensaje = "";
         }
-        String Chupelo2 = "";
+        String mensaje2 = "";
         for (int i = 0; i < Caminos.length; i++) {
             for (int j = 0; j < Caminos[i].length; j++) {
-                Chupelo2 = Chupelo2 + "[" + Caminos[i][j] + "]";
+                mensaje2 = mensaje2 + "[" + Caminos[i][j] + "]";
             }
-            System.out.println(Chupelo2);
-            Chupelo2 = "";
+            System.out.println(mensaje2);
+            mensaje2 = "";
         }
     }
 
+    /**
+     * Con este metodo podemos obtener el camino optimo para llegar de una isla a otra
+     * @param Origen
+     * @param Destino
+     * @param Costos
+     * @param Caminos
+     * @param Nodos 
+     */
     public static void Camino(Isla Origen, Isla Destino, int Costos[][], String Caminos[][], LinkedList<Isla> Nodos) {
         LinkedList<String> Ruta = new LinkedList<>();
         Ruta.add(Destino.getNombre());

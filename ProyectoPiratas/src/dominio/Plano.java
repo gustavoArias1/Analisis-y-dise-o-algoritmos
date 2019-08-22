@@ -22,6 +22,11 @@ public final class Plano implements Serializable{
         Islas.add(isla);
     }
 
+    /**
+     * este metodo retorna la isla a partir del nombre
+     * @param nombre
+     * @return isla
+     */
     public static Isla obtenerIsla(String nombre){
         Isla isla=null;
         for (int i = 0; i < Islas.size(); i++) {
