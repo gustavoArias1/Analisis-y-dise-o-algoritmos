@@ -8,6 +8,14 @@ public class Continente implements Serializable {
     private Isla image;
     private ImageIcon imagen;
     
+    /**
+     * 
+     * @param x
+     * @param y
+     * @param ancho
+     * @param alto
+     * @param imagen 
+     */
     public Continente(int x, int y, int ancho, int alto, String imagen) {
         this.imagen = new ImageIcon(getClass().getResource("../Imagenes/" + imagen));
         this.x = x;

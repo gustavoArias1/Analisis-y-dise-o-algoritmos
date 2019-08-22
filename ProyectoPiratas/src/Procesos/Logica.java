@@ -14,6 +14,15 @@ import java.util.LinkedList;
  */
 public class Logica {
   
+    /**
+     * Es un algoritmo de programacion dinamica que funciona bajo el enfoque bottom up, que lo que hace es listarme las rutas y los
+     * costos minimos
+     * @param Origen
+     * @param Destino
+     * @param Costos
+     * @param Caminos
+     * @param Nodos 
+     */
      public  static void FloydWarshall(Isla Origen ,Isla Destino ,int Costos[][], String Caminos[][], LinkedList<Isla> Nodos) {
         LinkedList<Conexion> Conexiones = new LinkedList<>();
         int suma = 0;
@@ -57,10 +66,19 @@ public class Logica {
 
     }
      
+     /**
+      * Con este metodo podemos obtener el camino optimo para llegar de una isla a otra
+      * @param Origen
+      * @param Destino
+      * @param Costos
+      * @param Caminos
+      * @param Nodos 
+      */
     public static void Camino(Isla Origen, Isla Destino, int Costos[][], String Caminos[][], LinkedList<Isla> Nodos) {
         LinkedList<String> Ruta = new LinkedList<>();
         Ruta.add(Destino.getNombre());
         Boolean camino=false;
+        String nDestino = Destino.getNombre();
         int i=0;
         int j=0;
         int x=0;
@@ -76,7 +94,7 @@ public class Logica {
                 }
             }
             while(x==0){
-                if(Nodos.get(j).getNombre().equals(Destino.getNombre())){
+                if(Nodos.get(j).getNombre().equals(nDestino)){
                     x=1;
                    
                 }else{
@@ -84,9 +102,9 @@ public class Logica {
                 }
             }
             Ruta.add(Caminos[i][j]);
-            Destino.setNombre(Caminos[i][j]);
+            nDestino=Caminos[i][j];
             if(Caminos[i][j].equals(Nodos.get(j).getNombre())){
-                Ruta.add(Origen.getNombre());
+                //Ruta.add(Origen.getNombre());
                 camino=true;
             }
             i=0;
@@ -94,25 +112,25 @@ public class Logica {
         }
         Collections.reverse(Ruta);
         System.out.println(Ruta+"esta es la ruta");
+       
         for (int l = 0; l < Ruta.size(); l++) {
-            for (int k = 0; k < Nodos.size(); k++) {
-                if(Ruta.get(l).equals(Nodos.get(k).getNombre())){
-                    Barco.Ruta.add(Nodos.get(k));
-                }
-                    
-            }
+            System.out.println(Ruta.get(l)+"  ggg");
+            Barco.Ruta.add(Plano.obtenerIsla(Ruta.get(l)));
         }
-        for (int k = 0; k < Barco.Ruta.size(); k++) {
-            System.out.println(Barco.Ruta.get(k).getNombre());
+        for (int m = 0; m < Barco.Ruta.size(); m++) {
+            System.out.println(Barco.Ruta.get(m));
         }
+        
     } 
      
+    /**
+     * Me pone la siguiente isla como destino
+     * @param origen 
+     */
     public static void siguienteIsla(Isla origen){
-        Barco.Origen=origen;
-        Barco.Destino=Plano.Islas.get(Barco.iteradorIsla+1);
-        
+            Barco.x=origen.getX();
+            Barco.y=origen.getY();
+            Barco.Destino=Barco.Ruta.get(2); 
+               
     }
-    
-
-    
 }

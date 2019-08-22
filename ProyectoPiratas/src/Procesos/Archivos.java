@@ -33,7 +33,9 @@ public class Archivos implements Serializable {
 
    
     
-    
+    /**
+     * Este metodo me permite guardar todos los objetos serializados
+     */
     public void guardarArchivo(){
         String nombre=JOptionPane.showInputDialog(null, "Ingresa nombre archivo");
         miFile=new File(nombre);
@@ -50,6 +52,9 @@ public class Archivos implements Serializable {
         
     }
     
+    /**
+     * Este metodo permite recoger el archivo serializado y leerlo para transformarlo en los objetos previamente guardados
+     */
     public void leerArchivo(){
         String nombre=JOptionPane.showInputDialog(null, "Ingresa nombre archivo");
         miFile=new File(nombre);
@@ -63,6 +68,10 @@ public class Archivos implements Serializable {
         }
     }
     
+    /**
+     * Transforma la lista que trae la serializacion en los objetos del dominio
+     * @param listaGeneralEntrada 
+     */
     public void deserializar(LinkedList listaGeneralEntrada){
         Plano.Conexiones=(LinkedList)listaGeneralEntrada.get(0);
         Plano.Continentes=(LinkedList)listaGeneralEntrada.get(1);

@@ -21,6 +21,11 @@ public class Monstruo implements Serializable{
     public Monstruo() {
     }
 
+    /**
+     * 
+     * @param vida
+     * @param Peligrosidad 
+     */
     public Monstruo(int vida, int Peligrosidad) {
         this.imagen=new ImageIcon(getClass().getResource("../Imagenes/Monstruo.png"));
         this.vida = vida;

@@ -307,11 +307,12 @@ public class Mapa extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void ConexionIslasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConexionIslasActionPerformed
-        String islaOrigen=JOptionPane.showInputDialog(null,"Ingrese Isla Origen");     
+        String islaOrigen=JOptionPane.showInputDialog(null,"Ingrese Isla Origen"); 
         String islaDestino=JOptionPane.showInputDialog(null,"Ingrese Isla Destino");
         int Distancia=Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese la distancia"));
         Isla IslaOrigen= Plano.Islas.get(0);
         Isla IslaDestino= Plano.Islas.get(0);
+        
         for (int i = 0; i < Plano.Islas.size(); i++) {
             if(Plano.Islas.get(i).getNombre().equals(islaOrigen)){
                 IslaOrigen=Plano.Islas.get(i);
@@ -321,7 +322,8 @@ public class Mapa extends javax.swing.JFrame {
             }
             
         }
-        Plano.Conexiones.add(new Conexion(IslaOrigen, IslaDestino, Distancia,"Isleña"));
+        Plano.obtenerIsla(islaOrigen).adicionarConexiones(new Conexion(IslaOrigen, IslaDestino, Distancia,"Isleña"));
+        //Plano.Conexiones.add(new Conexion(IslaOrigen, IslaDestino, Distancia,"Isleña"));
         //Plano.Conexiones.add(new Conexion(IslaDestino, IslaOrigen, Distancia,"Isleña"));
     }//GEN-LAST:event_ConexionIslasActionPerformed
 
@@ -366,6 +368,7 @@ public class Mapa extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        
         PanelControl panelcontrol = new PanelControl();
         panelcontrol.setVisible(true);
     }//GEN-LAST:event_jLabel6MouseClicked
@@ -425,7 +428,7 @@ public class Mapa extends javax.swing.JFrame {
     }
     
     public static void AgregarIsla()
-    {
+    {   
         islaNueva.setNombre(editar.getjTextField1().getText());
         islaNueva.setNumeroEsclavos(Integer.parseInt(editar.getjTextField2().getText()));
         islaNueva.setTesoros(Integer.parseInt(editar.getjTextField3().getText()));
