@@ -205,11 +205,13 @@ public class PanelControl extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Barco.Origen=Origen;
-        Barco.Destino=Destino;
+        Barco.Origen=Barco.Ruta.get(0);
+        Barco.Destino=Barco.Ruta.get(1);
         B.iniciarHilo();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -278,5 +280,12 @@ public class PanelControl extends javax.swing.JFrame {
      */
     public javax.swing.JProgressBar getjProgressBar1() {
         return jProgressBar1;
+    }
+
+    /**
+     * @param jLabel11 the jLabel11 to set
+     */
+    public void setjLabel11(String jLabel11) {
+        this.jLabel11.setText(jLabel11); 
     }
 }

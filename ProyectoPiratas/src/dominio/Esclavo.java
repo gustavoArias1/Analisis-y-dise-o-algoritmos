@@ -10,37 +10,34 @@ package dominio;
  * @author ANDRES ARIAS
  */
 public class Esclavo {
-    private int tiempoVida;
-    private Isla edad;
+    private int tipo;
+    private int poderAtaque;
 
     public Esclavo() {
+        
     }
 
-    /**
-     * 
-     * @param tiempoVida
-     * @param edad 
-     */
-    public Esclavo(int tiempoVida, Isla edad) {
-        this.tiempoVida = tiempoVida;
-        this.edad = edad;
+    public Esclavo(int tipo, int poderAtaque) {
+        this.tipo = tipo;
+        this.poderAtaque = poderAtaque;
     }
 
-    public int getTiempoVida() {
-        return tiempoVida;
+    public int getTipo() {
+        return tipo;
     }
 
-    public void setTiempoVida(int tiempoVida) {
-        this.tiempoVida = tiempoVida;
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
 
-    public Isla getEdad() {
-        return edad;
+    public int getPoderAtaque() {
+        return poderAtaque;
     }
 
-    public void setEdad(Isla edad) {
-        this.edad = edad;
+    public void setPoderAtaque(int poderAtaque) {
+        this.poderAtaque = poderAtaque;
     }
+    
     
     
 }

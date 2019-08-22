@@ -2,11 +2,13 @@ package Procesos;
 import dominio.*;
 import javax.swing.*;
 public class Mapa extends javax.swing.JFrame {
+
     private ImageIcon itemC, itemI;
     private int x;
     private int y;
     private int itemContinente, itemIsla;
     public static Editar editar = new Editar();
+    public static PanelControl p;
     public static Isla islaNueva;
     
     public Mapa() {
@@ -14,7 +16,8 @@ public class Mapa extends javax.swing.JFrame {
         setLayout(null);
         this.setSize(1350, 700);
         this.setResizable(false);        
-        mundo.setSize(1350, 700);        
+        mundo.setSize(1350, 700);
+        p = new PanelControl();        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

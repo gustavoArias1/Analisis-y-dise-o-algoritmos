@@ -6,6 +6,8 @@
 package dominio;
 
 import Procesos.Logica;
+import Procesos.Mapa;
+import Procesos.PanelControl;
 import java.awt.Rectangle;
 import java.util.LinkedList;
 import javax.swing.ImageIcon;
@@ -16,7 +18,7 @@ import javax.swing.ImageIcon;
  */
 public class Barco implements Runnable{
     public static boolean choque = false;
-    public static  int Esclavos;
+    public static  int Esclavos=10;
     public static  int iteradorIsla=0;
     public static  Boolean rutaTerminada=false;
     public static  Boolean llegoIsla=false;
@@ -33,10 +35,17 @@ public class Barco implements Runnable{
     public static Isla Destino;
     public  Thread T= new Thread(this);
     public static LinkedList<Isla> Ruta= new LinkedList<>();
+    public static LinkedList<Esclavo> listaEsclavos= new LinkedList<>();
     
 
     public Barco() {
         
+    }
+    
+    public void horasNavegacion(){
+        for (int i = 0; i < listaEsclavos.size(); i++) {
+            horasNavegacion+=listaEsclavos.get(i).getTipo();
+        }
     }
     
     public   void iniciarHilo(){
@@ -79,6 +88,7 @@ public class Barco implements Runnable{
                 Thread.sleep(20);
                
             }
+                
                 llegoIsla=true;
                 iteradorIsla++;
                 Barco.Origen=Destino;
@@ -91,8 +101,11 @@ public class Barco implements Runnable{
                 b = -1 * (Destino.getX() * pendiente - Destino.getY());
                 if (choque == false) {
                     choque = true;
+                    System.out.println(Barco.Esclavos);
+                    
                     Thread.sleep(2000);
-                    //PanelControl.setjProgressBar1();
+                    Mapa.p.setjLabel11(Barco.Esclavos+"");
+                            
                 }
                 
             }
